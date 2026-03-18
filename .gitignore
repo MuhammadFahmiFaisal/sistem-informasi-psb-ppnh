@@ -25,6 +25,10 @@ dist-ssr
 *.sw?
 
 # Internal Documentation & Scripts
-KODE_APPS_SCRIPT_LENGKAP.txt
-PANDUAN_*.md
-PRESENTER_SCRIPT.md
+/*.md
+!README.md
+/*.txt
+/*.sql
+/*.png
+.agent/
+metadata.json
