@@ -1,4 +1,5 @@
 import React from 'react';
+import { Flag, GraduationCap, Award, Users, Handshake, BookOpen, Brain } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const About: React.FC = () => {
@@ -43,7 +44,7 @@ const About: React.FC = () => {
                 {/* Item 1 */}
                 <Reveal className="flex flex-col items-center w-full md:w-1/3 p-4 md:p-0 rounded-lg" delay={300}>
                   <div className="w-12 h-12 rounded-full border-2 border-gold bg-[#f8f9fa] dark:bg-navy-dark flex items-center justify-center text-navy dark:text-white mb-6 z-10 relative shadow-sm">
-                    <span className="material-symbols-outlined text-2xl">flag</span>
+                    <Flag className="w-6 h-6" />
                   </div>
                   <div className="text-center">
                     <p className="text-navy dark:text-white font-semibold text-lg">Pendirian</p>
@@ -55,7 +56,7 @@ const About: React.FC = () => {
                 {/* Item 2 */}
                 <Reveal className="flex flex-col items-center w-full md:w-1/3 p-4 md:p-0 rounded-lg" delay={500}>
                   <div className="w-12 h-12 rounded-full border-2 border-gold bg-[#f8f9fa] dark:bg-navy-dark flex items-center justify-center text-navy dark:text-white mb-6 z-10 relative shadow-sm">
-                    <span className="material-symbols-outlined text-2xl">school</span>
+                    <GraduationCap className="w-6 h-6" />
                   </div>
                   <div className="text-center">
                     <p className="text-navy dark:text-white font-semibold text-lg">Perkembangan</p>
@@ -67,7 +68,7 @@ const About: React.FC = () => {
                 {/* Item 3 */}
                 <Reveal className="flex flex-col items-center w-full md:w-1/3 p-4 md:p-0 rounded-lg" delay={700}>
                   <div className="w-12 h-12 rounded-full border-2 border-gold bg-[#f8f9fa] dark:bg-navy-dark flex items-center justify-center text-navy dark:text-white mb-6 z-10 relative shadow-sm">
-                    <span className="material-symbols-outlined text-2xl">workspace_premium</span>
+                    <Award className="w-6 h-6" />
                   </div>
                   <div className="text-center">
                     <p className="text-navy dark:text-white font-semibold text-lg">Masa Kini</p>
@@ -86,7 +87,7 @@ const About: React.FC = () => {
               <div className="bg-white/60 dark:bg-navy/50 backdrop-blur-sm border border-white/50 rounded-xl p-6 shadow-glass hover:shadow-lg transition-shadow h-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-gold/20 p-3 rounded-full text-gold">
-                    <span className="material-symbols-outlined text-3xl">groups</span>
+                    <Users className="w-8 h-8" />
                   </div>
                   <h3 className="text-navy dark:text-white text-xl font-bold">Kepemimpinan (Leadership)</h3>
                 </div>
@@ -114,7 +115,7 @@ const About: React.FC = () => {
               <div className="bg-white/60 dark:bg-navy/50 backdrop-blur-sm border border-white/50 rounded-xl p-6 shadow-glass hover:shadow-lg transition-shadow h-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-gold/20 p-3 rounded-full text-gold">
-                    <span className="material-symbols-outlined text-3xl">handshake</span>
+                    <Handshake className="w-8 h-8" />
                   </div>
                   <h3 className="text-navy dark:text-white text-xl font-bold">Kolaborasi Unggulan</h3>
                 </div>
@@ -141,7 +142,7 @@ const About: React.FC = () => {
               <div className="bg-white/60 dark:bg-navy/50 backdrop-blur-sm border border-white/50 rounded-xl p-6 shadow-glass hover:shadow-lg transition-shadow h-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-gold/20 p-3 rounded-full text-gold">
-                    <span className="material-symbols-outlined text-3xl">menu_book</span>
+                    <BookOpen className="w-8 h-8" />
                   </div>
                   <h3 className="text-navy dark:text-white text-xl font-bold">Paradigma Salafiyah</h3>
                 </div>
@@ -154,7 +155,7 @@ const About: React.FC = () => {
               <div className="bg-white/60 dark:bg-navy/50 backdrop-blur-sm border border-white/50 rounded-xl p-6 shadow-glass hover:shadow-lg transition-shadow h-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-gold/20 p-3 rounded-full text-gold">
-                    <span className="material-symbols-outlined text-3xl">psychology</span>
+                    <Brain className="w-8 h-8" />
                   </div>
                   <h3 className="text-navy dark:text-white text-xl font-bold">Sistem Modern (KUI)</h3>
                 </div>

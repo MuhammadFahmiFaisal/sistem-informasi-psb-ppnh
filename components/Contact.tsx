@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Phone, Instagram, Mail, FileText, MessageSquare, Check, Send, Heart, MessageCircle, Clock } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 interface ContactProps {
@@ -117,7 +118,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-white/5 flex items-center justify-center text-action-blue dark:text-primary flex-shrink-0">
-                      <span className="material-symbols-outlined">call</span>
+                      <Phone className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 dark:text-slate-400">Telepon / WhatsApp</p>
@@ -128,7 +129,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-white/5 flex items-center justify-center text-action-blue dark:text-primary flex-shrink-0">
-                      <span className="material-symbols-outlined">alternate_email</span>
+                      <Instagram className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 dark:text-slate-400">Instagram</p>
@@ -138,11 +139,11 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-white/5 flex items-center justify-center text-action-blue dark:text-primary flex-shrink-0">
-                      <span className="material-symbols-outlined">mail</span>
+                      <Mail className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 dark:text-slate-400">Email</p>
-                      <p className="text-navy dark:text-white font-medium text-lg">psb_ppnh@gmail.com</p>
+                      <p className="text-navy dark:text-white font-medium text-lg">psb_nurulhudamalati@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -160,7 +161,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
                   onClick={onRegisterClick}
                   className="flex-1 flex items-center justify-center gap-2 bg-white dark:bg-white/10 border border-slate-200 dark:border-white/20 text-navy dark:text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-50 dark:hover:bg-white/20 transition-colors shadow-sm"
                 >
-                  <span className="material-symbols-outlined">description</span>
+                  <FileText className="w-5 h-5" />
                   <span>Formulir PSB</span>
                 </button>
               </div>
@@ -171,7 +172,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
           <Reveal delay={600} className="h-full">
             <div className="bg-white dark:bg-navy h-full rounded-xl border border-slate-200 dark:border-white/10 shadow-lg flex flex-col overflow-hidden p-6 md:p-8">
               <h3 className="text-xl font-bold text-navy dark:text-white mb-2 flex items-center gap-2">
-                <span className="material-symbols-outlined text-action-blue dark:text-primary">rate_review</span>
+                <MessageSquare className="w-6 h-6 text-action-blue dark:text-primary" />
                 Kirim Doa & Harapan
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
@@ -215,12 +216,12 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
                     </>
                   ) : formStatus === 'success' ? (
                     <>
-                      <span className="material-symbols-outlined">check</span>
+                      <Check className="w-5 h-5" />
                       <span>Terkirim!</span>
                     </>
                   ) : (
                     <>
-                      <span className="material-symbols-outlined">send</span>
+                      <Send className="w-5 h-5" />
                       <span>Kirim Doa</span>
                     </>
                   )}
@@ -236,7 +237,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
             <div className="flex flex-col md:flex-row items-center justify-between mb-8 pb-4 border-b border-slate-100 dark:border-white/5 gap-4">
               <div>
                 <h4 className="font-bold text-lg md:text-2xl text-navy dark:text-white flex items-center gap-3">
-                  <span className="material-symbols-outlined text-action-blue dark:text-primary text-3xl">volunteer_activism</span>
+                  <Heart className="w-8 h-8 text-action-blue dark:text-primary" />
                   Harapan & Doa Terbaru
                 </h4>
                 <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
@@ -251,7 +252,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
             <div className="flex flex-col gap-4 max-h-[500px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-white/10">
               {wishes.length === 0 ? (
                 <div className="text-center py-20 opacity-50 bg-slate-50 dark:bg-white/5 rounded-xl border-dashed border-2 border-slate-200">
-                  <span className="material-symbols-outlined text-5xl mb-4 text-slate-300">chat_bubble_outline</span>
+                  <MessageCircle className="w-12 h-12 mb-4 text-slate-300 mx-auto" />
                   <p className="text-lg text-slate-500">Belum ada doa dan harapan.</p>
                   <p className="text-sm text-slate-400">Jadilah yang pertama mengirimkan!</p>
                 </div>
@@ -282,7 +283,7 @@ const Contact: React.FC<ContactProps> = ({ onRegisterClick }) => {
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
                           <h5 className="font-bold text-navy dark:text-white text-sm md:text-base truncate">{wish.nama}</h5>
                           <span className="text-[10px] md:text-xs text-slate-400 flex items-center gap-1 bg-white dark:bg-navy-dark px-2 py-0.5 rounded-full border border-slate-100 dark:border-white/5 w-fit">
-                            <span className="material-symbols-outlined text-[10px]">schedule</span>
+                            <Clock className="w-3 h-3" />
                             {wish.timestamp ? new Date(wish.timestamp).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Baru saja'}
                           </span>
                         </div>

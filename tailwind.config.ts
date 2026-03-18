@@ -18,6 +18,7 @@ export default {
         "primary-dark": "#d4a000",
         navy: "#0A2342",
         "navy-dark": "#051121",
+        "navy-darker": "#030b16",
         gold: "#D4AF37",
         "action-blue": "#1142d4",
       },

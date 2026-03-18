@@ -1,4 +1,5 @@
 import React from 'react';
+import { Building, Globe, Users2, CheckCircle2, ShieldCheck, BookOpen, Star, StarHalf, Construction, Handshake, Megaphone } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const WhyChooseUs: React.FC = () => {
@@ -32,7 +33,7 @@ const WhyChooseUs: React.FC = () => {
           <Reveal className="md:col-span-1" delay={0}>
             <div className="bg-white dark:bg-navy h-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-slate-100 dark:border-white/5 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group min-h-[240px]">
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-blue-50 dark:bg-white/10 text-navy dark:text-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 mb-4 md:mb-0">
-                <span className="material-symbols-outlined text-2xl md:text-3xl" aria-hidden="true">domain_add</span>
+                <Building className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="text-lg md:text-xl font-bold text-navy dark:text-white mb-2">Integrasi Terstruktur</h3>
@@ -55,7 +56,7 @@ const WhyChooseUs: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-navy/95 via-navy/70 to-transparent/50"></div>
               <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end md:justify-center max-w-lg relative z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 backdrop-blur-md border border-gold/30 w-fit mb-4">
-                  <span className="material-symbols-outlined text-gold text-sm" aria-hidden="true">public</span>
+                  <Globe className="w-4 h-4 text-gold" aria-hidden="true" />
                   <span className="text-gold text-xs font-bold uppercase">Koneksi Global</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-white mb-3">Link Industri & LPK Jepang</h3>
@@ -73,7 +74,7 @@ const WhyChooseUs: React.FC = () => {
 
               <div className="relative z-10 flex flex-col h-full">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-3xl md:text-4xl text-gold" aria-hidden="true">diversity_3</span>
+                  <Users2 className="w-8 h-8 md:w-10 md:h-10 text-gold" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold mb-4">Leadership (LDKS) & OPPN Kuat</h3>
                 <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-8 flex-grow">
@@ -82,15 +83,15 @@ const WhyChooseUs: React.FC = () => {
 
                 <div className="space-y-3 md:space-y-4">
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                    <span className="material-symbols-outlined text-gold" aria-hidden="true">check_circle</span>
+                    <CheckCircle2 className="w-5 h-5 text-gold" aria-hidden="true" />
                     <span className="text-sm font-medium">Latihan Dasar (LDKS)</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                    <span className="material-symbols-outlined text-gold" aria-hidden="true">check_circle</span>
+                    <CheckCircle2 className="w-5 h-5 text-gold" aria-hidden="true" />
                     <span className="text-sm font-medium">Organisasi Modern</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                    <span className="material-symbols-outlined text-gold" aria-hidden="true">check_circle</span>
+                    <CheckCircle2 className="w-5 h-5 text-gold" aria-hidden="true" />
                     <span className="text-sm font-medium">Kader Pemimpin</span>
                   </div>
                 </div>
@@ -103,7 +104,7 @@ const WhyChooseUs: React.FC = () => {
             <div className="bg-white dark:bg-navy h-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-slate-100 dark:border-white/5 shadow-lg hover:shadow-xl transition-all duration-300 group min-h-[220px]">
               <div className="flex justify-between items-start mb-4">
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-2xl md:text-3xl" aria-hidden="true">verified</span>
+                  <ShieldCheck className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
                 </div>
                 <span className="px-3 py-1 bg-slate-100 dark:bg-white/10 rounded-full text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-300">ISO 9001:2015</span>
               </div>
@@ -118,7 +119,7 @@ const WhyChooseUs: React.FC = () => {
           <Reveal className="md:col-span-1" delay={400}>
             <div className="bg-white dark:bg-navy h-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-slate-100 dark:border-white/5 shadow-lg hover:shadow-xl transition-all duration-300 group min-h-[220px]">
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-2xl md:text-3xl" aria-hidden="true">menu_book</span>
+                <BookOpen className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-navy dark:text-white mb-2">Kurikulum Visioner</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -154,9 +155,9 @@ const WhyChooseUs: React.FC = () => {
                       <span className="font-bold text-navy dark:text-white text-base">4.8</span>
                       <div className="flex text-gold">
                         {[1, 2, 3, 4].map(i => (
-                          <span key={i} className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                          <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
-                        <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>star_half</span>
+                        <StarHalf className="w-4 h-4 fill-current" />
                       </div>
                     </div>
                     <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold group-hover/gmaps:text-primary transition-colors">Lihat 70+ Ulasan</p>
@@ -171,7 +172,7 @@ const WhyChooseUs: React.FC = () => {
           <Reveal className="md:col-span-1" delay={600}>
             <div className="bg-slate-50 dark:bg-white/5 h-full rounded-2xl md:rounded-3xl p-5 md:p-6 flex items-center gap-4 hover:bg-white dark:hover:bg-white/10 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
               <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 text-primary-dark flex items-center justify-center">
-                <span className="material-symbols-outlined text-xl md:text-2xl" aria-hidden="true">construction</span>
+                <Construction className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
               </div>
               <div>
                 <h4 className="font-bold text-navy dark:text-white text-sm md:text-base">Ekspansi Infrastruktur Nyata</h4>
@@ -186,7 +187,7 @@ const WhyChooseUs: React.FC = () => {
           <Reveal className="md:col-span-1" delay={700}>
             <div className="bg-slate-50 dark:bg-white/5 h-full rounded-2xl md:rounded-3xl p-5 md:p-6 flex items-center gap-4 hover:bg-white dark:hover:bg-white/10 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
               <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center">
-                <span className="material-symbols-outlined text-xl md:text-2xl" aria-hidden="true">handshake</span>
+                <Handshake className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
               </div>
               <div>
                 <h4 className="font-bold text-navy dark:text-white text-sm md:text-base">Sinergi Kuat & Visioner</h4>
@@ -201,7 +202,7 @@ const WhyChooseUs: React.FC = () => {
           <Reveal className="md:col-span-1" delay={800}>
             <div className="bg-slate-50 dark:bg-white/5 h-full rounded-2xl md:rounded-3xl p-5 md:p-6 flex items-center gap-4 hover:bg-white dark:hover:bg-white/10 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10">
               <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 flex items-center justify-center">
-                <span className="material-symbols-outlined text-xl md:text-2xl" aria-hidden="true">campaign</span>
+                <Megaphone className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
               </div>
               <div>
                 <h4 className="font-bold text-navy dark:text-white text-sm md:text-base">Peran Sosial & Dakwah</h4>

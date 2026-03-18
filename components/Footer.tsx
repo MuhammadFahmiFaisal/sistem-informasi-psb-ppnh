@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-bold text-gold">Alamat</h4>
             <div className="flex items-start gap-3 text-sm">
-              <span className="material-symbols-outlined text-gold text-lg mt-0.5">location_on</span>
+              <MapPin className="text-gold w-5 h-5 mt-0.5" />
               <p className="text-slate-300">
                 Jl. Pasirwangi, Kel. Padaasih, Kec. Pasirwangi, Garut, Jawa Barat 44151, Indonesia
               </p>

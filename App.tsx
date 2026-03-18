@@ -6,14 +6,15 @@ import About from './components/About';
 import WhyChooseUs from './components/WhyChooseUs';
 import NewsFeature from './components/NewsFeature';
 import Programs from './components/Programs';
-import Gallery from './components/Gallery';
-import VideoGallery from './components/VideoGallery';
-import AdmissionsInfo from './components/AdmissionsInfo';
-import Facilities from './components/Facilities';
-import Contact from './components/Contact';
+const Gallery = React.lazy(() => import('./components/Gallery'));
+const VideoGallery = React.lazy(() => import('./components/VideoGallery'));
+const StudentWorks = React.lazy(() => import('./components/StudentWorks'));
+const AdmissionsInfo = React.lazy(() => import('./components/AdmissionsInfo'));
+const Facilities = React.lazy(() => import('./components/Facilities'));
+const Contact = React.lazy(() => import('./components/Contact'));
 import Footer from './components/Footer';
-import RegistrationForm from './components/RegistrationForm';
-import AdminDashboard from './components/AdminDashboard';
+const RegistrationForm = React.lazy(() => import('./components/RegistrationForm'));
+const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
 
 const LandingPage: React.FC = () => {
   const [showRegistration, setShowRegistration] = React.useState(false);
@@ -27,11 +28,14 @@ const LandingPage: React.FC = () => {
         <WhyChooseUs />
         <NewsFeature />
         <Programs />
-        <Gallery />
-        <VideoGallery />
-        <AdmissionsInfo />
-        <Facilities />
-        <Contact onRegisterClick={() => setShowRegistration(true)} />
+        <React.Suspense fallback={<div className="h-40 flex items-center justify-center text-slate-400">Memuat konten...</div>}>
+          <StudentWorks />
+          <Gallery />
+          <VideoGallery />
+          <AdmissionsInfo />
+          <Facilities />
+          <Contact onRegisterClick={() => setShowRegistration(true)} />
+        </React.Suspense>
       </main>
       <Footer />
 
@@ -49,7 +53,14 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/admin" element={<AdminDashboard />} />
+      <Route
+        path="/admin"
+        element={
+          <React.Suspense fallback={<div className="min-h-screen bg-navy-darker flex items-center justify-center text-white">Loading Admin...</div>}>
+            <AdminDashboard />
+          </React.Suspense>
+        }
+      />
     </Routes>
   );
 };

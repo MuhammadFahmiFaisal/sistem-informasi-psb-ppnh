@@ -23,3 +23,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Internal Documentation & Scripts
+KODE_APPS_SCRIPT_LENGKAP.txt
+PANDUAN_*.md
+PRESENTER_SCRIPT.md

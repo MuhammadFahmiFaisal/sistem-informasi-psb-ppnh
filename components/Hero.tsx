@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { PlayCircle, ShieldCheck, Globe } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient';
 
 interface HeroProps {
   onRegisterClick?: () => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
+  const [slideImages, setSlideImages] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      const { data } = await supabase
+        .from('gallery')
+        .select('image_url')
+        .eq('category', 'Banner Depan')
+        .order('created_at', { ascending: false });
+
+      if (data && data.length > 0) {
+        setSlideImages(data.map(item => item.image_url));
+      }
+    };
+
+    fetchBanners();
+  }, []);
+
+  useEffect(() => {
+    if (slideImages.length <= 1 || isPaused) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slideImages.length);
+    }, 4000); // 4 seconds per slide
+
+    return () => clearInterval(interval);
+  }, [slideImages.length, isPaused]);
+
+  const defaultImage = "https://res.cloudinary.com/dhovq374h/image/upload/v1765022707/model_cjzttz.png";
+  const displayImage = slideImages.length > 0 ? slideImages[currentIndex] : defaultImage;
+
   return (
     <section
       id="home"
@@ -22,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
         {/* LEFT TEXT */}
         <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left animate-[fadeIn_1s_ease]">
           <div className="flex flex-col gap-4">
-            <h1 className="text-white text-4xl font-black leading-tight tracking-tighter sm:text-5xl lg:text-6xl drop-shadow-lg ">
+            <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tighter drop-shadow-lg ">
               Penerimaan Santri Baru 2026/2027 – SMP Plus & SMK Plus
             </h1>
             <p className="text-white/90 text-base font-normal leading-normal sm:text-lg drop-shadow-md">
@@ -45,33 +80,75 @@ const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
               rel="noreferrer"
               className="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-5 bg-white/10 text-white font-bold border border-white/20 backdrop-blur-sm sm:w-auto transition-transform hover:scale-105 hover:bg-white/20"
             >
-              <span className="material-symbols-outlined">play_circle</span>
+              <PlayCircle className="w-5 h-5" />
               <span>Video Profil Pondok</span>
             </a>
           </div>
           <div className="mt-4 flex items-center gap-4 text-sm text-slate-400">
             <div className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-gold text-lg">verified</span>
+              <ShieldCheck className="w-5 h-5 text-gold" />
               <span>Standar ISO 9001:2015</span>
             </div>
             <div className="w-1 h-1 bg-slate-600 rounded-full"></div>
             <div className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-gold text-lg">public</span>
+              <Globe className="w-5 h-5 text-gold" />
               <span>Koneksi LPK Jepang</span>
             </div>
           </div>
         </div>
 
         {/* RIGHT IMAGE (Floating + Tilt Hover) */}
-        <div className="relative flex w-full justify-center lg:justify-end">
-          <div className="w-full max-w-md aspect-[2/2] rounded-xl p-2 bg-white/5 backdrop-blur-md shadow-2xl border border-white/10 transition-transform hover:scale-[1.03] hover:rotate-1">
-            <div
-              className="h-full w-full rounded-lg bg-center bg-no-repeat bg-cover shadow-xl"
-              style={{
-                backgroundImage: `url('https://res.cloudinary.com/dhovq374h/image/upload/v1765022707/model_cjzttz.png')`,
-                animation: "float 4s ease-in-out infinite",
-              }}
-            ></div>
+        <div className="relative flex w-full justify-center lg:justify-end h-full mt-4 lg:mt-0">
+          <div 
+            className="w-full max-w-[320px] sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/5] sm:aspect-square lg:aspect-[4/3] xl:aspect-[3/2] rounded-2xl p-2 sm:p-3 bg-white/5 backdrop-blur-md shadow-2xl border border-white/10 transition-transform hover:scale-[1.02] hover:rotate-1 overflow-hidden relative group"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            
+            {/* Pause overlay icon visually hints the user */}
+            <div className={`absolute top-4 right-4 z-20 bg-black/50 backdrop-blur text-white text-xs px-2 py-1 rounded transition-opacity duration-300 ${isPaused && slideImages.length > 1 ? 'opacity-100' : 'opacity-0'}`}>
+               Ditahan
+            </div>
+            {/* If there are multiple images, we map over them to create a fading slider. Otherwise just show one. */}
+            {slideImages.length > 1 ? (
+               slideImages.map((imgUrl, idx) => (
+                 <div
+                   key={idx}
+                   className={`absolute inset-2 sm:inset-3 rounded-xl bg-center bg-no-repeat bg-contain shadow-inner transition-all duration-1000 ease-in-out ${
+                     idx === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+                   }`}
+                   style={{
+                     backgroundImage: `url('${imgUrl}')`,
+                     animation: idx === currentIndex ? "float 6s ease-in-out infinite" : "none",
+                   }}
+                 />
+               ))
+            ) : (
+                <div
+                  className="absolute inset-2 sm:inset-3 rounded-xl bg-center bg-no-repeat bg-contain shadow-inner transition-transform duration-700 group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url('${displayImage}')`,
+                    animation: "float 6s ease-in-out infinite",
+                  }}
+                ></div>
+            )}
+            
+            {/* Optional dot indicators if we have slides */}
+            {slideImages.length > 1 && (
+              <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center gap-1.5 sm:gap-2 z-10">
+                {slideImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentIndex(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 shadow-sm ${
+                      idx === currentIndex ? 'bg-primary w-6 sm:w-8' : 'bg-white/50 hover:bg-white/80 w-2'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
