@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, User, Bed, Wallet } from 'lucide-react';
+import { Users, User, Bed, Wallet, Award } from 'lucide-react';
 import { formatIDR } from '../../lib/formatters';
 
 interface StatCardsProps {
@@ -8,13 +8,14 @@ interface StatCardsProps {
     laki: number;
     perempuan: number;
     mukim: number;
+    ansor: number;
     totalDana: number;
   };
 }
 
 const StatCards: React.FC<StatCardsProps> = ({ stats }) => {
   return (
-    <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6 mb-8 no-print px-1">
+    <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6 mb-8 no-print px-1">
       {/* Total */}
       <div className="bg-white dark:bg-navy p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-white/10 relative overflow-hidden group hover:shadow-md transition-all">
         <div className="relative z-10">
@@ -64,6 +65,19 @@ const StatCards: React.FC<StatCardsProps> = ({ stats }) => {
           <p className="text-[10px] text-purple-600 font-bold mt-1">Target Asrama</p>
         </div>
         <Bed className="absolute -right-4 -bottom-4 w-[120px] h-[120px] text-slate-100 dark:text-white/5 z-0" />
+      </div>
+
+      {/* Santri Ansor */}
+      <div className="bg-white dark:bg-navy p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-white/10 relative overflow-hidden group hover:shadow-md transition-all">
+        <div className="relative z-10">
+          <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white shadow-lg mb-4 group-hover:scale-110 transition-transform">
+            <Award className="w-6 h-6" />
+          </div>
+          <h3 className="text-3xl font-bold text-navy dark:text-white mb-1">{stats.ansor}</h3>
+          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Santri Ansor</p>
+          <p className="text-[10px] text-indigo-600 font-bold mt-1">Jalur Khusus</p>
+        </div>
+        <Award className="absolute -right-4 -bottom-4 w-[120px] h-[120px] text-slate-100 dark:text-white/5 z-0" />
       </div>
 
       {/* Total Dana (New) */}

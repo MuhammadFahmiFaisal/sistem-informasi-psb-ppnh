@@ -131,7 +131,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
                     Silakan bergabung dalam <strong>Grup WhatsApp Calon Santri</strong> untuk informasi lebih lanjut:
                   </p>
                   <a
-                    href={jenjang.includes('ANSOR') ? "https://chat.whatsapp.com/DEUYQQn2Ocg2K04LHJrdBM?mode=gi_t" : "https://chat.whatsapp.com/K5LHiA66RM0Hmyd6OLiKS5"}
+                    href={jenjang.includes('ANSOR') ? "https://chat.whatsapp.com/GkuORmScGsBKZKabmFGqAE" : "https://chat.whatsapp.com/K5LHiA66RMoHmyd6OLiKS5"}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 text-action-blue dark:text-primary font-bold hover:underline break-all text-xs md:text-sm"
@@ -593,9 +593,9 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
                                 onChange={(e) => {
                                   const val = e.target.value;
                                   if (val.includes("75.000")) { setFasilitasVal(75000); setIsFasilitasMonthly(true); }
-                                  else if (val.includes("400.000")) { setFasilitasVal(400000); setIsFasilitasMonthly(false); }
-                                  else if (val.includes("800.000")) { setFasilitasVal(800000); setIsFasilitasMonthly(false); }
                                   else if (val.includes("2.400.000")) { setFasilitasVal(2400000); setIsFasilitasMonthly(false); }
+                                  else if (val.includes("800.000")) { setFasilitasVal(800000); setIsFasilitasMonthly(false); }
+                                  else if (val.includes("400.000")) { setFasilitasVal(400000); setIsFasilitasMonthly(false); }
                                   else { setFasilitasVal(0); setIsFasilitasMonthly(false); }
                                 }}
                               >

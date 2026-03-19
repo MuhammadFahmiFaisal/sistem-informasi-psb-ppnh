@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
 
   useEffect(() => {
     if (slideImages.length <= 1 || isPaused) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slideImages.length);
     }, 4000); // 4 seconds per slide
@@ -56,13 +56,45 @@ const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
 
         {/* LEFT TEXT */}
         <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left animate-[fadeIn_1s_ease]">
-          <div className="flex flex-col gap-4">
-            <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tighter drop-shadow-lg ">
-              Penerimaan Santri Baru 2026/2027 – SMP Plus & SMK Plus
+          <div className="flex flex-col gap-4 sm:gap-6 w-full pr-1 sm:pr-0">
+            <h1 className="text-white text-[28px] sm:text-4xl lg:text-5xl font-black leading-[1.15] tracking-tight drop-shadow-xl">
+              Penerimaan Santri Baru 2026/2027 <br />SMP Plus & SMK&nbsp;Plus
             </h1>
-            <p className="text-white/90 text-base font-normal leading-normal sm:text-lg drop-shadow-md">
-              Mencetak pemimpin visioner melalui integrasi Salaf-Modern, Kedisiplinan (OPPN), dan koneksi global (Industri & Jepang). Bukan sekadar jumlah santri, tapi kualitas dampak.
-            </p>
+
+            <div className="flex flex-col gap-1.5 sm:gap-2">
+              <h2 className="text-yellow-300 text-[17px] sm:text-2xl font-extrabold tracking-wider drop-shadow-md uppercase">
+                Pondok Pesantren Nurul Huda Malati&nbsp;Garut
+              </h2>
+
+              <div className="flex flex-col text-[13px] sm:text-[15px] lg:text-base text-white/95 mt-1 max-w-[98%] sm:max-w-xl">
+
+                <p className="font-bold text-white text-[14px] sm:text-lg drop-shadow-md leading-tight mb-0.5 sm:mb-1">
+                  Tempat Lahirnya Pemimpin Masa&nbsp;Depan.
+                </p>
+                <p className="italic text-white/80 drop-shadow-sm leading-tight mb-2 sm:mb-3 pr-2 sm:pr-0">
+                  Integrasi Salaf-Modern, Disiplin Tinggi, dan Akses Global ke Jepang dan Dunia&nbsp;Industri.
+                </p>
+
+                <p className="font-bold text-yellow-400 text-[14px] sm:text-lg drop-shadow-md leading-tight mb-2 sm:mb-3 pr-2 sm:pr-0">
+                  Investasi Terbaik Bukan Sekedar Pendidikan, Tapi Masa Depan Anak&nbsp;Anda.
+                </p>
+
+                <p className="font-bold text-white drop-shadow-md leading-tight mb-0.5 sm:mb-1 pr-2 sm:pr-0">
+                  Daftarkan Putra Anda di Pesantren Yang Mempersiapkan Masa Depan&nbsp;Nyata.
+                </p>
+                <p className="italic text-white/80 drop-shadow-sm leading-tight mb-2 sm:mb-3 pr-2 sm:pr-0">
+                  Bukan Hanya Ilmu Agama, Tapi Disiplin, Karakter, dan Peluang&nbsp;Global.
+                </p>
+
+                <p className="font-bold text-white drop-shadow-md leading-tight mb-0.5 sm:mb-1 pr-2 sm:pr-0">
+                  Bukan Banyaknya Santri Yang Kami Kejar, Tapi Besarnya Dampak Yang Mereka&nbsp;Bawa.
+                </p>
+                <p className="italic text-yellow-300 font-semibold drop-shadow-md leading-tight">
+                  Dari Pesantren, Untuk&nbsp;Dunia.
+                </p>
+
+              </div>
+            </div>
           </div>
 
           {/* Buttons */}
@@ -99,42 +131,41 @@ const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
 
         {/* RIGHT IMAGE (Floating + Tilt Hover) */}
         <div className="relative flex w-full justify-center lg:justify-end h-full mt-4 lg:mt-0">
-          <div 
+          <div
             className="w-full max-w-[320px] sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/5] sm:aspect-square lg:aspect-[4/3] xl:aspect-[3/2] rounded-2xl p-2 sm:p-3 bg-white/5 backdrop-blur-md shadow-2xl border border-white/10 transition-transform hover:scale-[1.02] hover:rotate-1 overflow-hidden relative group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setIsPaused(false)}
           >
-            
+
             {/* Pause overlay icon visually hints the user */}
             <div className={`absolute top-4 right-4 z-20 bg-black/50 backdrop-blur text-white text-xs px-2 py-1 rounded transition-opacity duration-300 ${isPaused && slideImages.length > 1 ? 'opacity-100' : 'opacity-0'}`}>
-               Ditahan
+              Ditahan
             </div>
             {/* If there are multiple images, we map over them to create a fading slider. Otherwise just show one. */}
             {slideImages.length > 1 ? (
-               slideImages.map((imgUrl, idx) => (
-                 <div
-                   key={idx}
-                   className={`absolute inset-2 sm:inset-3 rounded-xl bg-center bg-no-repeat bg-contain shadow-inner transition-all duration-1000 ease-in-out ${
-                     idx === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
-                   }`}
-                   style={{
-                     backgroundImage: `url('${imgUrl}')`,
-                     animation: idx === currentIndex ? "float 6s ease-in-out infinite" : "none",
-                   }}
-                 />
-               ))
-            ) : (
+              slideImages.map((imgUrl, idx) => (
                 <div
-                  className="absolute inset-2 sm:inset-3 rounded-xl bg-center bg-no-repeat bg-contain shadow-inner transition-transform duration-700 group-hover:scale-105"
+                  key={idx}
+                  className={`absolute inset-2 sm:inset-3 rounded-xl bg-center bg-no-repeat bg-contain shadow-inner transition-all duration-1000 ease-in-out ${idx === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+                    }`}
                   style={{
-                    backgroundImage: `url('${displayImage}')`,
-                    animation: "float 6s ease-in-out infinite",
+                    backgroundImage: `url('${imgUrl}')`,
+                    animation: idx === currentIndex ? "float 6s ease-in-out infinite" : "none",
                   }}
-                ></div>
+                />
+              ))
+            ) : (
+              <div
+                className="absolute inset-2 sm:inset-3 rounded-xl bg-center bg-no-repeat bg-contain shadow-inner transition-transform duration-700 group-hover:scale-105"
+                style={{
+                  backgroundImage: `url('${displayImage}')`,
+                  animation: "float 6s ease-in-out infinite",
+                }}
+              ></div>
             )}
-            
+
             {/* Optional dot indicators if we have slides */}
             {slideImages.length > 1 && (
               <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center gap-1.5 sm:gap-2 z-10">
@@ -142,9 +173,8 @@ const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
                   <button
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 shadow-sm ${
-                      idx === currentIndex ? 'bg-primary w-6 sm:w-8' : 'bg-white/50 hover:bg-white/80 w-2'
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 shadow-sm ${idx === currentIndex ? 'bg-primary w-6 sm:w-8' : 'bg-white/50 hover:bg-white/80 w-2'
+                      }`}
                   />
                 ))}
               </div>

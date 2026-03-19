@@ -54,6 +54,7 @@ export const useAdminDashboard = () => {
     laki: 0,
     perempuan: 0,
     mukim: 0,
+    ansor: 0,
     totalDana: 0
   });
 
@@ -149,6 +150,7 @@ export const useAdminDashboard = () => {
     const laki = data.filter(r => r.Jenis_Kelamin === 'Laki-Laki').length;
     const perempuan = data.filter(r => r.Jenis_Kelamin === 'Perempuan').length;
     const mukim = data.filter(r => String(r.Masuk_Ke_Jenjang).toLowerCase().includes('mukim')).length;
+    const ansor = data.filter(r => String(r.Masuk_Ke_Jenjang).toLowerCase().includes('ansor')).length;
     
     const totalDana = data.reduce((acc, curr) => {
       if (curr.File_Bukti_Bayar) {
@@ -163,7 +165,7 @@ export const useAdminDashboard = () => {
       return acc;
     }, 0);
 
-    setStats({ total, laki, perempuan, mukim, totalDana });
+    setStats({ total, laki, perempuan, mukim, ansor, totalDana });
   };
 
   const fetchGallery = async () => {
